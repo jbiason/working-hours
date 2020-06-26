@@ -48,5 +48,11 @@ You could've left at 17:48
 - [ ] Clojure
 - [ ] Elixir
 - [ ] Java
+- [ ] Objective-C
+- [ ] Pascal
+- [ ] PHP
 - [ ] Python
 - [ ] Rust
+- [ ] Swift
+- [ ] TypeScript
+- [ ] Bash?
