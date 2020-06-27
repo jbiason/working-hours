@@ -23,10 +23,9 @@ For the total hours a person should work in the day, we'll consider 08:48 (or
 At 09:00
 
 ```
-$ wc 08:00
+$ wh 08:00
 So far, you worked 01:00
 You still need to work 07:48
-You still need to work till 17:48
 ```
 
 Reasoning: By starting at 08:00, up to 12:00, the user would've worked 4
@@ -36,10 +35,9 @@ hours; going back to work at 13:00, they would still need to work 4h48m, till
 At 18:00
 
 ```
-$ wc 08:00 12:00 13:00
-So far, you worked, 09:00.
+$ wh 08:00 12:00 13:00
+So far, you worked 09:00.
 You did 00:12 hours of extra work.
-You could've left at 17:48
 ```
 
 ## Languages
