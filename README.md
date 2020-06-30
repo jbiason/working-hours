@@ -42,9 +42,11 @@ You did 00:12 hours of extra work.
 
 ## Languages
 
-- [ ] C
+- [x] C
 - [ ] Clojure
 - [ ] Elixir
+- [ ] Erlang
+- [ ] Haskell
 - [ ] Java
 - [ ] Objective-C
 - [ ] Pascal
