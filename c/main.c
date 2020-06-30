@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "hours.h"
+#include "period.h"
 
 int main(int argc, char* argv[]) {
 	hours *start = NULL;
@@ -42,39 +43,22 @@ int main(int argc, char* argv[]) {
 	}
 
 	hours* now = hours_right_now();
-	hours* so_far;
-	if (hours_preceed(now, lunch_return) == -1) {
-		so_far = hours_sub(start, now);
-	} else {
-		hours* before_lunch = hours_sub(start, lunch_break);
-		hours* after_lunch = hours_sub(lunch_return, now);
-
-		so_far = hours_add(before_lunch, after_lunch);
-
-		hours_free(before_lunch);
-		hours_free(after_lunch);
-	}
-
+	hours* so_far = period_worked_so_far(start, lunch_break, lunch_return, now);
 	char *display = hours_display(so_far);
-
 	printf("So far, you've worked %s\n", display);
-
-	hours* must_work = hours_new("08:48");
-	if (hours_preceed(so_far, must_work) == -1) {
-		hours* remaining = hours_sub(so_far, must_work);
-		char *still = hours_display(remaining);
-		printf("You still need to work %s\n", still);
-		free(still);
-		hours_free(remaining);
-	} else {
-		hours* exceeding = hours_sub(must_work, so_far);
-		char* extra = hours_display(exceeding);
-		printf("You did %s of extra work\n", extra);
-		free(extra);
-		hours_free(exceeding);
-	}
-
 	free(display);
+
+	int extra;
+	hours* period = period_calc_time(so_far, &extra);
+	char* result_display = hours_display(period);
+	if (extra == 1) {
+		printf("You did %s of extra work\n", result_display);
+	} else {
+		printf("You still need to work %s\n", result_display);
+	}
+	free(result_display);
+	hours_free(period);
+
 	hours_free(so_far);
 	hours_free(now);
 	hours_free(start);
