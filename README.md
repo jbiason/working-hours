@@ -48,6 +48,7 @@ You did 00:12 hours of extra work.
 - [ ] Erlang
 - [ ] Haskell
 - [ ] Java
+- [ ] Lua
 - [ ] Objective-C
 - [ ] Pascal
 - [ ] PHP
